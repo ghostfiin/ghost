@@ -1,0 +1,11 @@
+// Distribuição de Pontos Livres
+const pontosDistribuidos = ficha.get("Força") + ficha.get("Intelecto") + ficha.get("Constituição") + ficha.get("Agilidade") + ficha.get("Carisma") + ficha.get("Energia");
+const pontosLivres = ficha.get("Pontos Livres");
+
+// Verifica se os pontos gastos ultrapassam 30
+if (pontosDistribuidos > 30) {
+    ui.alert("Você distribuiu mais pontos do que o permitido! (Máximo 30)");
+    ficha.set("Pontos Livres", 30 - pontosDistribuidos);  // Reduz pontos livres automaticamente
+} else {
+    ficha.set("Pontos Livres", 30 - pontosDistribuidos);  // Atualiza pontos livres
+}
